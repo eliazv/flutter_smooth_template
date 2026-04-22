@@ -1,8 +1,10 @@
-# Store Description Template
+Store Description Template
 
 Non usare emoji nei testi store.
 
-## Play Store
+# Play Store
+
+## ITA version
 
 ### Nome app (max 30)
 
@@ -10,7 +12,17 @@ Non usare emoji nei testi store.
 
 ### Descrizione completa (max 4000)
 
-## App Store
+## English version
+
+### Nome app (max 30)
+
+### Descrizione breve (max 80)
+
+### Descrizione completa (max 4000)
+
+# App Store
+
+## ITA version
 
 ### Nome (max 30)
 
@@ -24,12 +36,12 @@ Non usare emoji nei testi store.
 
 ## English version
 
-### Title
+### Nome (max 30)
 
-### Subtitle
+### Sottotitolo (max 30)
 
-### Keywords
+### Parole chiave (max 100)
 
-### Promo text
+### Testo promozionale (max 170)
 
-### Description
+### Descrizione (max 4000)
