@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_toast/smooth_toast.dart';
 
 class AppToast {
   const AppToast._();
@@ -6,14 +7,12 @@ class AppToast {
   static void show(
     BuildContext context,
     String message, {
-    Color? backgroundColor,
+    SmoothToastType type = SmoothToastType.info,
   }) {
-    // Wrapper centralizzato: qui puoi sostituire implementazione con smooth_toast.
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: backgroundColor,
-      ),
+    SmoothToast.show(
+      context,
+      message: message,
+      type: type,
     );
   }
 }

@@ -6,3 +6,5 @@
 - migliora docs
 - cartella ssets gia orgnaizzata in cartelle
 - docuemtno store\store-description.md togli i valori ma la struttura deve essere quella , la riempiremo poi noi in seguito a mano
+
+- rendi piu generica non dati eliazavatta

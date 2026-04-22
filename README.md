@@ -1,251 +1,96 @@
 # Flutter Smooth Template
 
-Template riutilizzabile per creare app Flutter con setup rapido, architettura coerente e moduli facilmente attivabili o disattivabili.
+Template Flutter riutilizzabile per avviare nuove app con setup rapido, struttura coerente e moduli disattivabili.
 
-## Obiettivo
+## Avvio rapido
 
-Ridurre al minimo il lavoro ripetitivo:
+1. Installa dipendenze:
+   - flutter pub get
+2. Esegui bootstrap:
+   - Windows: scripts/bootstrap.ps1 -AppName "Nome App" -BundleId "com.company.nomeapp"
+   - macOS/Linux: scripts/bootstrap.sh "Nome App" "com.company.nomeapp"
+3. Verifica qualità:
+   - flutter analyze
+   - flutter test
 
-- clone template
-- bootstrap
-- attiva solo i moduli necessari
-- inizia sviluppo feature
+## Comandi utili
 
-## Principi fondamentali
+### Bootstrap completo
 
-- Architettura feature-first
-- Core stabile e condiviso
-- Servizi astratti con implementazioni intercambiabili
-- Config centralizzata con feature flags
-- Nessun lock-in precoce su DB o provider esterni
+- scripts/bootstrap.ps1 -AppName "Nome App" -BundleId "com.company.nomeapp" -SupportEmail "info+nomeapp@eliazavatta.it"
+- scripts/bootstrap.sh "Nome App" "com.company.nomeapp" "info+nomeapp@eliazavatta.it"
 
-## Stack standard
+### Sostituzione placeholder manuale
 
-- State management: Riverpod
-- Routing: go_router
-- Networking: dio
-- Data model: freezed + json_serializable
-- Logging: logger
-- Storage: contratto unico + implementazioni plug and play
+- scripts/replace_placeholders.ps1 -AppName "Nome App" -BundleId "com.company.nomeapp" -SupportEmail "info+nomeapp@eliazavatta.it"
+- scripts/replace_placeholders.sh "Nome App" "com.company.nomeapp" "info+nomeapp@eliazavatta.it"
 
-## Librerie richieste
+### Creazione nuova app da template (helper)
 
-- smooth_onboarding
-- smooth_paywall
-- smooth_bottom_sheet
-- smooth_toast
+- scripts/new_app.ps1 -AppName "Nome App" -BundleId "com.company.nomeapp"
+- scripts/new_app.sh "Nome App" "com.company.nomeapp"
 
-Regola UI: usa bottom sheet e wrapper condivisi, evita modal custom sparse.
+## Variabili e flag principali
 
-## Cosa decidere subito nel template
+### Feature flags
 
-- struttura cartelle
-- contratti servizi (StorageService, AdsService, AnalyticsService, PurchaseService)
-- design system (colors, typography, spacing, radius, theme)
-- eventi analytics base
-- entry-point con moduli togglable
+- ENABLE_ONBOARDING
+- ENABLE_PAYWALL
+- ENABLE_ADS
+- ENABLE_BANNER_ADS
+- ENABLE_INTERSTITIAL_ADS
+- ENABLE_REWARDED_ADS
+- ENABLE_UNITY_MEDIATION
+- ENABLE_ANALYTICS
+- ENABLE_REMOTE_CONFIG
+- ENABLE_AUTH
+- ENABLE_BACKEND_SYNC
 
-## Cosa decidere dopo il clone
+### Provider ads
 
-- DB locale: SharedPreferences, Hive, Isar, Drift
-- strategia monetizzazione: ads, freemium, subscription
-- provider ads: AdMob, Unity mediation, hybrid
-- onboarding flow
-- backend (Firebase, Supabase, API custom)
-- feature opzionali (leaderboard, cloud sync, social login)
+- ADS_PROVIDER=admob
+- ADS_PROVIDER=unity_mediation
+- ADS_PROVIDER=hybrid
+- ADS_PROVIDER=disabled
 
-## Struttura repository
+### Dati app
 
-```text
-flutter_smooth_template/
-├── README.md
-├── pubspec.yaml
-├── analysis_options.yaml
-├── .gitignore
-├── .github/workflows/flutter_ci.yml
-├── docs/
-│   ├── architettura.md
-│   ├── setup.md
-│   ├── stile.md
-│   ├── monetizzazione.md
-│   ├── aso.md
-│   ├── checklist_release.md
-│   ├── database_strategy.md
-│   └── feature_flags.md
-├── scripts/
-│   ├── bootstrap.ps1
-│   └── bootstrap.sh
-├── store/
-│   ├── description.txt
-│   ├── keywords.txt
-│   ├── privacy_policy_template.md
-│   └── screenshots/
-└── lib/
-    ├── main.dart
-    ├── app.dart
-    ├── core/
-    │   ├── config/
-    │   ├── logging/
-    │   ├── router/
-    │   ├── theme/
-    │   └── utils/
-    ├── services/
-    │   ├── ads/
-    │   ├── analytics/
-    │   ├── purchases/
-    │   ├── storage/
-    │   └── services.dart
-    ├── shared/
-    │   └── widgets/
-    │       ├── ads/
-    │       └── ui/
-    └── features/
-        ├── feature_template/
-        ├── home/
-        ├── onboarding/
-        └── paywall/
-```
+- APP_NAME
+- APP_FLAVOR
+- ADMOB_BANNER_ID
+- ADMOB_INTERSTITIAL_ID
+- ADMOB_REWARDED_ID
 
-## Moduli disattivabili
+## Contatto supporto
 
-Feature flags disponibili:
+Formato standard consigliato per ogni app:
 
-- enableOnboarding
-- enablePaywall
-- enableAds
-- enableBanner
-- enableInterstitial
-- enableRewarded
-- enableUnityMediation
-- enableAnalytics
-- enableRemoteConfig
-- enableAuth
-- enableBackendSync
+- info+nomeapp@eliazavatta.it
 
-Configurazione consigliata:
+## Struttura progetto
 
-- default nel template
-- override con dart-define
-- override per flavor dev/prod
+- lib/core: config, theme, router, utilità
+- lib/services: ads, analytics, purchases, storage
+- lib/shared: widget riutilizzabili
+- lib/features: feature-first architecture
+- docs: guida completa
+- scripts: automazioni bootstrap
+- assets: struttura media pronta
+- store: materiale ASO e listing
 
-Esempi:
+## Documentazione completa
 
-- --dart-define=ENABLE_ADS=false
-- --dart-define=ENABLE_PAYWALL=false
+- docs/setup.md
+- docs/architettura_funzionalita.md
+- docs/architettura.md
+- docs/feature_flags.md
+- docs/monetizzazione.md
+- docs/database_strategy.md
+- docs/checklist_release.md
+- docs/smooth_package_alternative.md
 
-## Provider ads selezionabile
+## Stato qualità attuale
 
-Imposta ADS_PROVIDER:
-
-- admob
-- unity_mediation
-- hybrid
-- disabled
-
-Nota: la mediazione Unity con AdMob richiede setup nativo e dashboard oltre al codice Dart.
-
-## Ads e monetizzazione
-
-Supporto template:
-
-- Banner
-- Interstitial
-- Rewarded
-
-Pattern corretto:
-
-- UI dipende da AdsService e PurchaseService
-- provider concreto scelto in services.dart
-- quando premium attivo, ads disattivate centralmente
-
-## Storage plug and play
-
-Il template espone StorageService.
-
-Implementazioni attuali:
-
-- MemoryStorageService (default template)
-- SharedPreferencesStorageService
-
-Implementazioni previste per app specifiche:
-
-- HiveStorageService
-- IsarStorageService
-- DriftStorageService
-
-## Design system
-
-Componenti base nel core:
-
-- AppColors
-- AppTypography
-- AppSpacing
-- AppRadius
-- AppTheme
-
-Widget shared:
-
-- AppBottomSheet
-- AppToast
-- SmartBanner
-- RewardedButton
-
-## Workflow operativo
-
-1. Crea nuovo repo da template
-2. Esegui bootstrap
-3. Aggiorna nome app e bundle id
-4. Configura Firebase, AdMob, RevenueCat
-5. Imposta flags e provider
-6. Implementa feature reali partendo da feature_template
-7. Esegui checklist release
-
-## Checklist rapida
-
-- rename app
-- bundle id
-- icone e splash
-- setup firebase
-- setup admob
-- setup revenuecat
-- ATT iOS
-- privacy policy
-- store listing
-
-## CI e qualita
-
-Workflow inclusa:
-
-- flutter pub get
-- flutter analyze
-- flutter test
-
-## Convenzioni
-
-- package id: com.eliazavatta.appname
-- support email consigliata: info+nomeapp@eliazavatta.it
-- cartelle: snake_case
-- file screen: \*\_screen.dart
-- controller: \*\_controller.dart
-- service: interfaccia + implementazione
-
-## Sostituzione placeholder
-
-Script inclusi:
-
-- scripts/replace_placeholders.ps1
-- scripts/replace_placeholders.sh
-
-Placeholder supportati:
-
-- APP_NAME_PLACEHOLDER
-- BUNDLE_ID_PLACEHOLDER
-- SUPPORT_EMAIL_PLACEHOLDER
-
-## Prossimi step nel repository
-
-- completare integrazione smooth_onboarding reale
-- completare integrazione smooth_paywall reale con RevenueCat
-- aggiungere strategy hybrid ads avanzata
-- aggiungere generator per nuova feature
-- aggiungere flavor dev/prod completi
+- Flutter analyze: pulito
+- Flutter test: baseline presente
+- CI GitHub Actions: inclusa

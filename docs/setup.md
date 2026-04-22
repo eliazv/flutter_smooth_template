@@ -7,6 +7,18 @@
 
 ## 2. Bootstrap progetto
 
+Comando unico consigliato:
+
+Windows:
+
+- scripts/new_app.ps1 -AppName "Nome App" -BundleId "com.company.nomeapp"
+
+macOS/Linux:
+
+- scripts/new_app.sh "Nome App" "com.company.nomeapp"
+
+Comandi bootstrap diretti:
+
 Windows:
 
 - esegui scripts/bootstrap.ps1 -AppName "Nome App" -BundleId "com.eliazavatta.nomeapp"
@@ -36,6 +48,7 @@ macOS/Linux:
 
 - aggiorna nome app
 - aggiorna bundle id Android/iOS
+- usa bundle id generico del tuo account reale (esempio: com.company.nomeapp)
 - configura icona e splash
 - collega Firebase
 - imposta ID AdMob

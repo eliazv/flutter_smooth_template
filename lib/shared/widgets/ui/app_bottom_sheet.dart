@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smooth_bottom_sheet/smooth_bottom_sheet.dart';
 
 class AppBottomSheet {
   const AppBottomSheet._();
@@ -6,15 +7,14 @@ class AppBottomSheet {
   static Future<T?> show<T>({
     required BuildContext context,
     required Widget child,
-    bool isScrollControlled = true,
-    bool useSafeArea = true,
+    String? title,
+    String? subtitle,
   }) {
-    // Wrapper centralizzato: qui puoi sostituire implementazione con smooth_bottom_sheet.
-    return showModalBottomSheet<T>(
+    return showSmoothBottomSheet<T>(
       context: context,
-      isScrollControlled: isScrollControlled,
-      useSafeArea: useSafeArea,
-      builder: (_) => child,
+      title: title,
+      subtitle: subtitle,
+      child: child,
     );
   }
 }
