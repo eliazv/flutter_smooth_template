@@ -66,8 +66,42 @@ macOS/Linux:
 - configura SKAdNetworkItems
 - mostra prompt ATT al momento corretto
 
-## 6. Verifica
+## 6. Localizzazioni (i18n)
+
+Lingue disponibili: italiano (default) e inglese.
+
+Dopo clonare, genera stringhe localizzate:
+
+```bash
+flutter gen-l10n
+```
+
+Questo crea `lib/generated_l10n/app_localizations.dart` e i file di supporto.
+
+Per aggiungere nuove stringhe:
+- Modifica `lib/l10n/app_it.arb` (italiano)
+- Modifica `lib/l10n/app_en.arb` (inglese)
+- Riesegui `flutter gen-l10n`
+- Usa `AppLocalizations.of(context)!.chiaveStringa` nei widget
+
+## 7. Web support
+
+Template include supporto web. Per buildare:
+
+```bash
+# Development
+flutter run -d chrome
+
+# Production web build
+scripts/build_web.sh   # macOS/Linux
+scripts/build_web.ps1  # Windows
+```
+
+**Nota:** Alcuni package non supportano web (google_mobile_ads, app_tracking_transparency). Vengono disabilitati automaticamente nel web build via feature flags.
+
+## 8. Verifica
 
 - flutter pub get
+- flutter gen-l10n
 - flutter analyze
 - flutter test

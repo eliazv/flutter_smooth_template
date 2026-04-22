@@ -1,0 +1,22 @@
+{
+  "appTitle": "Flutter Smooth Template",
+  "homeSubtitle": "Starter kit pronto: attiva solo i moduli che servono in questa app.",
+  "homeOnboarding": "Onboarding",
+  "homeOnboardingDesc": "Flusso iniziale utente",
+  "homePaywall": "Paywall",
+  "homePaywallDesc": "Acquisti premium",
+  "homeAds": "Ads",
+  "homeAdsDesc": "Banner, interstitial, rewarded",
+  "homeAnalytics": "Analytics",
+  "homeAnalyticsDesc": "Eventi standard app",
+  "homeOpenOnboarding": "Apri onboarding",
+  "homeOpenPaywall": "Apri paywall",
+  "onboardingTitle1": "Benvenuto",
+  "onboardingBody1": "Template pronto per nuove app Flutter.",
+  "onboardingTitle2": "Architettura moderna",
+  "onboardingBody2": "Feature-first, Riverpod, router e servizi pluggabili.",
+  "onboardingTitle3": "Pronto a partire",
+  "onboardingBody3": "Configura flags e provider, poi sviluppa la prima feature.",
+  "onboardingCompleted": "Onboarding completato",
+  "onboardingGoHome": "Vai alla home"
+}
