@@ -1,0 +1,6 @@
+APP_NAME_PLACEHOLDER
+
+Sostituisci questo testo con la descrizione reale del progetto.
+Focus su problema risolto, beneficio utente, funzionalita principali, valore premium.
+
+Contatti supporto: SUPPORT_EMAIL_PLACEHOLDER
